@@ -1,3 +1,2 @@
 To start a project use:
-`npm install`
-`npm start`
+`npm install` & `npm start`
