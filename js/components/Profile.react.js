@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import ProfileTextInput from './ProfileTextInput.react';
+import TextInput from './TextInput.react';
 import ContactListStore from '../stores/ContactListStore';
 import AuthStore from '../stores/AuthStore';
 import ContactActions from '../actions/ContactActions';
@@ -58,7 +58,7 @@ export default class Profile extends Component {
 
     if (this.state.isEditing && this.state.isLogged) {
       input = (
-        <ProfileTextInput
+        <TextInput
           className="edit"
           onSave={this.onSave}
           value={this.state.profile.name.first}

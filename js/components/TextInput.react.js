@@ -3,7 +3,7 @@ import React, { Component, PropTypes } from 'react';
 
 const ENTER_KEY_CODE = 13;
 
-export default class ProfileTextInput extends Component {
+export default class TextInput extends Component {
 
   constructor(props) {
     super(props);
@@ -48,7 +48,7 @@ export default class ProfileTextInput extends Component {
 
 }
 
-ProfileTextInput.propTypes = {
+TextInput.propTypes = {
   className: PropTypes.string,
   id: PropTypes.string,
   placeholder: PropTypes.string,
