@@ -18,8 +18,10 @@
   "devDependencies": {
     "babel-core": "^6.5.1",
     "babel-loader": "^6.2.2",
+    "babel-plugin-transform-class-properties": "^6.10.2",
     "babel-preset-es2015": "^6.5.0",
     "babel-preset-react": "^6.5.0",
+    "babel-preset-stage-0": "^6.5.0",
     "eslint": "^2.12.0",
     "eslint-config-airbnb": "^9.0.1",
     "eslint-loader": "^1.3.0",
@@ -29,6 +31,16 @@
     "http-server": "^0.8.5",
     "webpack": "^1.12.13",
     "webpack-dev-server": "^1.14.1"
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "stage-0",
+      "react"
+    ],
+    "plugins": [
+      "transform-class-properties"
+    ]
   },
   "author": "Raman Alesiankou",
   "browserify": {
