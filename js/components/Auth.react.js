@@ -14,10 +14,6 @@ export default class Auth extends Component {
       login: '',
       password: '',
     };
-    this.login = this.login.bind(this);
-    this.onKeyDown = this.onKeyDown.bind(this);
-    this.onInputChange = this.onInputChange.bind(this);
-    this.onLoggedChange = this.onLoggedChange.bind(this);
   }
 
   componentDidMount() {
@@ -28,7 +24,7 @@ export default class Auth extends Component {
     AuthStore.removeChangeListener(this.onLoggedChange);
   }
 
-  onLoggedChange() {
+  onLoggedChange = () => {
     this.setState({
       isLogged: AuthStore.isLogged(),
       login: '',
@@ -36,19 +32,19 @@ export default class Auth extends Component {
     });
   }
 
-  onKeyDown(event) {
+  onKeyDown = (event) => {
     if (event.keyCode === ENTER_KEY_CODE && event.target.name === 'password') {
       this.login();
     }
   }
 
-  onInputChange(event) {
+  onInputChange = (event) => {
     this.setState({
       [event.target.name]: event.target.value,
     });
   }
 
-  login() {
+  login = () => {
     AuthStore.login(this.state.login, this.state.password);
   }
 

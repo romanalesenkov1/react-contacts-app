@@ -17,8 +17,6 @@ export default class ContactApp extends Component {
   constructor(props) {
     super(props);
     this.state = getContactListState();
-
-    this.onChange = this.onChange.bind(this);
   }
 
   componentDidMount() {
@@ -30,7 +28,7 @@ export default class ContactApp extends Component {
     ContactListStore.removeChangeListener(this.onChange);
   }
 
-  onChange() {
+  onChange = () => {
     this.setState(getContactListState());
   }
 

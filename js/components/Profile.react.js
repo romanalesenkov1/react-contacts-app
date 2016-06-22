@@ -11,12 +11,6 @@ export default class Profile extends Component {
   constructor(props) {
     super(props);
     this.state = this.getProfileState();
-
-    this.onChange = this.onChange.bind(this);
-    this.onDoubleClick = this.onDoubleClick.bind(this);
-    this.onSave = this.onSave.bind(this);
-    this.getProfileState = this.getProfileState.bind(this);
-    this.onLoggedChange = this.onLoggedChange.bind(this);
   }
 
   componentDidMount() {
@@ -30,26 +24,26 @@ export default class Profile extends Component {
     AuthStore.removeChangeListener(this.onLoggedChange);
   }
 
-  onLoggedChange() {
+  onLoggedChange = () => {
     this.setState({
       isLogged: AuthStore.isLogged(),
     });
   }
 
-  onChange() {
+  onChange = () => {
     this.setState(this.getProfileState());
   }
 
-  onDoubleClick() {
+  onDoubleClick = () => {
     this.setState({ isEditing: true });
   }
 
-  onSave(text) {
+  onSave = (text) => {
     ContactActions.updateText(this.state.profile.email, text);
     this.setState({ isEditing: false });
   }
 
-  getProfileState() {
+  getProfileState = () => {
     return {
       profile: ContactListStore.getUserByUsername(
         this.props.params.username

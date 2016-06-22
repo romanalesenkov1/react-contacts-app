@@ -10,24 +10,21 @@ export default class ProfileTextInput extends Component {
     this.state = {
       value: this.props.value || '',
     };
-    this.save = this.save.bind(this);
-    this.onChange = this.onChange.bind(this);
-    this.onKeyDown = this.onKeyDown.bind(this);
   }
 
-  onChange(event) {
+  onChange = (event) => {
     this.setState({
       value: event.target.value,
     });
   }
 
-  onKeyDown(event) {
+  onKeyDown = (event) => {
     if (event.keyCode === ENTER_KEY_CODE) {
       this.save();
     }
   }
 
-  save() {
+  save = () => {
     this.props.onSave(this.state.value);
     this.setState({
       value: '',

@@ -8,11 +8,9 @@ export default class Contact extends Component {
 
   constructor(props) {
     super(props);
-
-    this.onDestroyClick = this.onDestroyClick.bind(this);
   }
 
-  onDestroyClick() {
+  onDestroyClick = () => {
     ContactActions.destroy(this.props.contact.email);
   }
 

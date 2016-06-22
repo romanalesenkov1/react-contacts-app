@@ -14,12 +14,6 @@ export default class MainSection extends Component {
       filter: ContactListStore.getFilterState(),
       isLogged: AuthStore.isLogged(),
     };
-
-    this.onSortAscend = this.onSortAscend.bind(this);
-    this.onSortDescend = this.onSortDescend.bind(this);
-    this.onFilterChange = this.onFilterChange.bind(this);
-    this.onFilterByGenderChange = this.onFilterByGenderChange.bind(this);
-    this.onLoggedChange = this.onLoggedChange.bind(this);
   }
 
   componentDidMount() {
@@ -30,32 +24,32 @@ export default class MainSection extends Component {
     AuthStore.removeChangeListener(this.onLoggedChange);
   }
 
-  onLoggedChange() {
+  onLoggedChange = () => {
     this.setState({
       isLogged: AuthStore.isLogged(),
     });
   }
 
-  onSortAscend(e) {
+  onSortAscend = (e) => {
     const name = e.target.name;
     const ascendant = true;
     ContactActions.sortList(name, ascendant);
   }
 
-  onSortDescend(e) {
+  onSortDescend = (e) => {
     const name = e.target.name;
     const ascendant = false;
     ContactActions.sortList(name, ascendant);
   }
 
-  onFilterChange(e) {
+  onFilterChange = (e) => {
     const currentState = this.state.filter;
     currentState.searchString = e.target.value;
     this.setState({ filter: currentState });
     ContactActions.filterList(e.target.value);
   }
 
-  onFilterByGenderChange(e) {
+  onFilterByGenderChange = (e) => {
     const checked = e.target.checked;
     const gender = e.target.name;
 
