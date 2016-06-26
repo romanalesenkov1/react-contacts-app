@@ -6,6 +6,7 @@ import $ from 'jquery';
 
 
 const CHANGE_EVENT = 'change';
+const BASE_URL = 'http://api.randomuser.me/';
 
 let contactList = [];
 let profile = null;
@@ -117,7 +118,7 @@ const ContactListStore = assign({}, EventEmitter.prototype, {
       return this.getAll();
     } else {
       $.ajax({
-        url: 'http://api.randomuser.me/?results=20&inc=login,name,gender,email,location,picture,phone',
+        url: `${BASE_URL}?results=20&inc=login,name,gender,email,location,picture,phone`,
         dataType: 'json',
         success: function (data) {
           contactList = data.results;
@@ -141,7 +142,7 @@ const ContactListStore = assign({}, EventEmitter.prototype, {
       return profile;
     } else {
       $.ajax({
-        url: 'http://api.randomuser.me/?results=1&inc=login,name,gender,email,location,picture,phone',
+        url: `${BASE_URL}?results=1&inc=login,name,gender,email,location,picture,phone`,
         dataType: 'json',
         success: function (data) {
           profile = data.results[0];
