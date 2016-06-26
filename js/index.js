@@ -11,7 +11,7 @@ import Profile from './components/Profile.react';
 const appHistory = useRouterHistory(createHashHistory)({ queryKey: false });
 
 ReactDOM.render((
-  <Router history={appHistory}>
+  <Router history={appHistory} onUpdate={() => window.scrollTo(0, 0)}>
     <Route path="/" component={App}>
       <IndexRoute component={Home} />
       <Route path="/contacts" component={ContactApp} />
